@@ -8,3 +8,6 @@ run:
 
 dev:
 	make run
+
+test:
+	go test ./internal/resolver/ -v
