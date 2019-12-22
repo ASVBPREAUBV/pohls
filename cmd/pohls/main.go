@@ -1,23 +1,17 @@
 package pohls
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 )
 
 func main() {
-	tmpDir, err := prepareTestDirTree("dir/to/walk/skip")
-	if err != nil {
-		fmt.Printf("unable to create test dir tree: %v\n", err)
-		return
-	}
-	defer os.RemoveAll(tmpDir)
-	os.Chdir(tmpDir)
 
 	subDirToSkip := "skip"
 
 	fmt.Println("On Unix:")
-	err = filepath.Walk(".", func(path string, info os.FileInfo, err error) error {
+	err := filepath.Walk(".", func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			fmt.Printf("prevent panic by handling failure accessing a path %q: %v\n", path, err)
 			return err
