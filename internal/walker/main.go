@@ -1,4 +1,4 @@
-package pohls
+package walker
 
 import (
 	"fmt"
@@ -6,8 +6,7 @@ import (
 	"path/filepath"
 )
 
-func main() {
-
+func Walk() {
 	subDirToSkip := "skip"
 
 	fmt.Println("On Unix:")
@@ -23,8 +22,9 @@ func main() {
 		fmt.Printf("visited file or dir: %q\n", path)
 		return nil
 	})
+
 	if err != nil {
-		fmt.Printf("error walking the path %q: %v\n", tmpDir, err)
-		return
+		panic(err)
 	}
+
 }
