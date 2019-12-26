@@ -32,5 +32,7 @@ func NameDetox(fileName string) string {
 
 	NoSpecialCharacters := regexp.MustCompile("[^a-zA-Z0-9]+")
 
+	// if everything is removed dont bother
+
 	return NoSpecialCharacters.ReplaceAllString(fileName, " ")
 }

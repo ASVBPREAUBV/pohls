@@ -37,7 +37,7 @@ func FilePathToMedia(fileName string) Media {
 		media.Year = year
 	}
 
-	//fmt.Println(fileName)
+	fmt.Println(fileName)
 
 	mediaName := NameDetox(fileName)
 
