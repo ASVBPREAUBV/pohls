@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"github.com/ASVBPREAUBV/pohls/internal/walker"
 	"github.com/spf13/cobra"
 )
 
@@ -26,5 +27,6 @@ func Execute() {
 	if err := rootCmd.Execute(); err != nil {
 		panic(err)
 	} else {
+		walker.Walk(InputDir)
 	}
 }
