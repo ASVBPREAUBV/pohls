@@ -1,25 +1,30 @@
 package cmd
 
 import (
-	"fmt"
 	"github.com/spf13/cobra"
-	"os"
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "pohls",
+	Use:   "gen",
 	Short: "Pohls is a fast and simple media file manager",
 	Long: `A Fast and Flexible File Manager built with
                 love by ASVBPREAUBV in Go.
                 Complete documentation is available at http://NaN`,
 	Run: func(cmd *cobra.Command, args []string) {
-		// Do Stuff Here
 	},
 }
 
+var InputDir string
+var OutputDir string
+
 func Execute() {
+	rootCmd.Flags().StringVarP(&InputDir, "input", "i", "", "Source directory to read from")
+	rootCmd.Flags().StringVarP(&OutputDir, "output", "o", "", "Target directory to write to")
+
+	rootCmd.MarkFlagRequired("input")
+	rootCmd.MarkFlagRequired("output")
 	if err := rootCmd.Execute(); err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+		panic(err)
+	} else {
 	}
 }

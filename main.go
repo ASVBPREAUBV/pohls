@@ -1,8 +1,9 @@
 package main
 
-import "github.com/ASVBPREAUBV/pohls/internal/walker"
+import (
+	"github.com/ASVBPREAUBV/pohls/internal/cmd"
+)
 
 func main() {
-	walker.Walk()
-
+	cmd.Execute()
 }
