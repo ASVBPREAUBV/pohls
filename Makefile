@@ -10,4 +10,4 @@ dev:
 	make run
 
 test:
-	go test -v
+	go test  ./internal/resolver/ -v
