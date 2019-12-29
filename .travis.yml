@@ -20,5 +20,5 @@ deploy:
   api_key: $GITLAB_TOKEN
   file: ./pohls
   skip_cleanup: true
-  on:
-    tags: true
+#  on:
+#    tags: true
