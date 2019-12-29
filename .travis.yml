@@ -18,7 +18,7 @@ script:
 deploy:
   provider: releases
   api_key: $GITLAB_TOKEN
-  file: ./pohls
+  file: pohls
   skip_cleanup: true
 #  on:
 #    tags: true
