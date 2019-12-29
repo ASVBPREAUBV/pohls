@@ -11,4 +11,14 @@ env:
 
 
 script:
-- go test
+- make test
+- make build
+
+
+deploy:
+  provider: releases
+  api_key: $GITLAB_TOKEN
+  file: ./pohls
+  skip_cleanup: true
+  on:
+    tags: true
