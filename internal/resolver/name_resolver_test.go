@@ -8,7 +8,7 @@ import (
 )
 
 func TestNameToTmdb(t *testing.T) {
-	dat, err := ioutil.ReadFile("/Users/paul/go/src/github.com/ASVBPREAUBV/pohls/tests/filenames.json")
+	dat, err := ioutil.ReadFile("../../tests/filenames.json")
 	if err != nil {
 		t.Error(err)
 	}
