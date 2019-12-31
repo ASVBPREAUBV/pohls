@@ -1,5 +1,7 @@
 # Pohls Media Manager
 
+[![Build Status](https://travis-ci.com/ASVBPREAUBV/pohls.svg?branch=master)](https://travis-ci.com/ASVBPREAUBV/pohls)
+
 CLI that converts any chaotic download folder into organised file structure:
 
 ## Goal Structure:
