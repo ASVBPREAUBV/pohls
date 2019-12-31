@@ -1,7 +1,7 @@
 APP=pohls
 
 go-build:
-	go build -o ${APP} main.go
+	go build -o ${APP}-${TARGET} main.go
 
 run:
 	go run main.go

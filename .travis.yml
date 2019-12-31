@@ -9,6 +9,15 @@ go:
 env:
 - GO111MODULE=on
 
+matrix:
+  include:
+  - os: linux
+    dist: trusty
+    env: TARGET=lnx
+  - os: osx
+    osx_image: xcode8.3 # Tracvis default: OS X 10.12.6 and Xcode 8.3.3
+    env: TARGET=mac
+
 
 script:
 - make go-test
@@ -18,7 +27,7 @@ script:
 deploy:
   provider: releases
   token: $GITLAB_TOKEN
-  file: pohls
+  file: pohls*
   file_glob: true
   skip_cleanup: true
   on:
