@@ -1,6 +1,6 @@
 APP=pohls
 
-build:
+go-build:
 	go build -o ${APP} main.go
 
 run:
@@ -9,5 +9,5 @@ run:
 dev:
 	make run
 
-test:
+go-test:
 	go test  ./internal/resolver/ -v

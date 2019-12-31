@@ -11,8 +11,8 @@ env:
 
 
 script:
-- make test
-- make build
+- make go-test
+- make go-build
 - ls -la
 
 deploy:
