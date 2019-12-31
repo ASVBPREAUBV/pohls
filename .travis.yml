@@ -20,6 +20,6 @@ deploy:
   token: $GITLAB_TOKEN
   file: pohls
   file_glob: true
-  cleanup: false
+  skip_cleanup: true
   on:
     tags: true
