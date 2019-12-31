@@ -20,5 +20,5 @@ deploy:
   token: $GITLAB_TOKEN
   file: pohls
   cleanup: false
-#  on:
-#    tags: true
+  on:
+    tags: true
