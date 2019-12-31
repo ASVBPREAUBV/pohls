@@ -19,6 +19,7 @@ deploy:
   provider: releases
   token: $GITLAB_TOKEN
   file: pohls
+  file_glob: true
   cleanup: false
   on:
     tags: true
