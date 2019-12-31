@@ -5,19 +5,21 @@ go:
 - 1.12.x
 - 1.13.x
 
-
-env:
-- GO111MODULE=on
+git:
+  depth: 1
 
 matrix:
   include:
   - os: linux
     dist: trusty
-    env: TARGET=lnx
+    env:
+    - TARGET=lnx
+    - GO111MODULE=on
   - os: osx
     osx_image: xcode8.3 # Tracvis default: OS X 10.12.6 and Xcode 8.3.3
-    env: TARGET=mac
-
+    env:
+    - TARGET=mac
+    - GO111MODULE=on
 
 script:
 - make go-test
