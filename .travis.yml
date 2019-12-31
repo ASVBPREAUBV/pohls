@@ -18,10 +18,15 @@ jobs:
     dist: trusty
     env:
     - TARGET=lnx
+    go:
+    - 1.13.x
   - os: osx
     osx_image: xcode8.3 # Tracvis default: OS X 10.12.6 and Xcode 8.3.3
     env:
     - TARGET=mac
+    go:
+    - 1.13.x
+
 
 script:
 - make go-test
