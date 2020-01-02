@@ -6,18 +6,19 @@ import (
 	"path/filepath"
 )
 
-func Walk(inputDir string) {
-	subDirToSkip := "skip"
+func Walk(inputDir string) (filepathList []string) {
 
-	fmt.Println("On Unix:")
 	err := filepath.Walk(inputDir, func(path string, info os.FileInfo, err error) error {
+
 		if err != nil {
 			fmt.Printf("prevent panic by handling failure accessing a path %q: %v\n", path, err)
 			return err
 		}
-		if info.IsDir() && info.Name() == subDirToSkip {
-			fmt.Printf("skipping a dir without errors: %+v \n", info.Name())
-			return filepath.SkipDir
+
+		//fmt.Printf("%q\n", path)
+
+		if filepath.Ext(path) == "avi" {
+			filepathList = append(filepathList, path)
 		}
 
 		return nil
@@ -26,5 +27,7 @@ func Walk(inputDir string) {
 	if err != nil {
 		panic(err)
 	}
+
+	return filepathList
 
 }

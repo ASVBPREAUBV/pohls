@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"github.com/ASVBPREAUBV/pohls/internal/resolver"
 	"github.com/ASVBPREAUBV/pohls/internal/walker"
 	"github.com/spf13/cobra"
 )
@@ -22,13 +23,14 @@ var DryRun bool
 func Execute() {
 	rootCmd.Flags().StringVarP(&InputDir, "input", "i", "", "Source directory to read from")
 	rootCmd.Flags().StringVarP(&OutputDir, "output", "o", "", "Target directory to write to")
-	rootCmd.Flags().BoolVarP(&DryRun, "dry", "dry", false, "dry run without writing file")
+	rootCmd.Flags().BoolVarP(&DryRun, "dry", "d", false, "dry run without writing file")
 
 	rootCmd.MarkFlagRequired("input")
 	rootCmd.MarkFlagRequired("output")
 	if err := rootCmd.Execute(); err != nil {
 		panic(err)
 	} else {
-		walker.Walk(InputDir)
+		filepathList := walker.Walk(InputDir)
+		resolver.FilePathListToTmDbCollectionList(filepathList)
 	}
 }

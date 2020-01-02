@@ -6,11 +6,25 @@ import (
 	"path/filepath"
 )
 
-func FilePathToTmdbCollection(string string) tmdb.Collection {
+func FilePathListToTmDbCollectionList(filenames []string) (collections []tmdb.Collection) {
+
+	for _, filename := range filenames {
+		collection, err := FilePathToTmdbCollection(filename)
+		if err != nil {
+			fmt.Print(err)
+		} else {
+			collections = append(collections, collection)
+		}
+	}
+
+	return collections
+}
+
+func FilePathToTmdbCollection(string string) (tmdb.Collection, error) {
 	file := filepath.Base(string)
 	FilePathToMedia(file)
 	bla := tmdb.Collection{}
-	return bla
+	return bla, nil
 }
 
 func FilePathToMedia(fileName string) Media {
@@ -37,13 +51,13 @@ func FilePathToMedia(fileName string) Media {
 		media.Year = year
 	}
 
-	fmt.Println(fileName)
+	//fmt.Println(fileName)
 
 	mediaName := NameDetox(fileName)
 
 	media.Name = mediaName
 
-	fmt.Println(media)
+	//fmt.Println(media)
 
 	/*episodeStrings := episodePattern.FindStringSubmatch(fileName)
 	fmt.Println(episodeStrings)
@@ -64,4 +78,3 @@ func FilePathToMedia(fileName string) Media {
 	//fmt.Print(seasonPattern.(fileName))
 	return media
 }
-
