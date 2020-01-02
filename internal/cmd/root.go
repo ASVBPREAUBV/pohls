@@ -17,11 +17,12 @@ var rootCmd = &cobra.Command{
 
 var InputDir string
 var OutputDir string
+var DryRun bool
 
 func Execute() {
 	rootCmd.Flags().StringVarP(&InputDir, "input", "i", "", "Source directory to read from")
 	rootCmd.Flags().StringVarP(&OutputDir, "output", "o", "", "Target directory to write to")
-	rootCmd.Flags().StringVarP(&OutputDir, "dry", "dry", "", "dry run without writing file")
+	rootCmd.Flags().BoolVarP(&DryRun, "dry", "dry", false, "dry run without writing file")
 
 	rootCmd.MarkFlagRequired("input")
 	rootCmd.MarkFlagRequired("output")
