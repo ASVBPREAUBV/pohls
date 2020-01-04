@@ -22,9 +22,19 @@ func FilePathListToTmDbCollectionList(filenames []string) (collections []tmdb.Co
 
 func FilePathToTmdbCollection(string string) (tmdb.Collection, error) {
 	file := filepath.Base(string)
-	FilePathToMedia(file)
-	bla := tmdb.Collection{}
-	return bla, nil
+	media := FilePathToMedia(file)
+	//TODO media health check
+
+	collection, err := MediaToTmdbCollection(media)
+	if err != nil {
+		return collection, err
+	}
+	return collection, nil
+}
+
+func MediaToTmdbCollection(fileName Media) (tmdb.Collection, error) {
+
+	return tmdb.Collection{}, nil
 }
 
 func FilePathToMedia(fileName string) Media {
