@@ -32,9 +32,25 @@ func FilePathToTmdbCollection(string string) (tmdb.Collection, error) {
 	return collection, nil
 }
 
-func MediaToTmdbCollection(fileName Media) (tmdb.Collection, error) {
+func MediaToTmdbCollection(media Media) (tmdb.Collection, error) {
+	config := tmdb.Config{
+		APIKey:   "YOUR_KEY",
+		Proxies:  nil,
+		UseProxy: false,
+	}
 
-	return tmdb.Collection{}, nil
+	tmdbAPI := tmdb.Init(config)
+	collectionSearchResults, err := tmdbAPI.SearchCollection(media.Name, nil)
+
+	firstResult := collectionSearchResults.Results[0]
+
+	collection, err := tmdbAPI.GetCollectionInfo(firstResult.ID, nil)
+
+	if err != nil {
+		return *collection, err
+	}
+
+	return *collection, nil
 }
 
 func FilePathToMedia(fileName string) Media {
