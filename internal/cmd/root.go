@@ -4,6 +4,7 @@ import (
 	"github.com/ASVBPREAUBV/pohls/internal/resolver"
 	"github.com/ASVBPREAUBV/pohls/internal/walker"
 	"github.com/spf13/cobra"
+	"gitlab.com/deepc/atlantis/pkg/config"
 )
 
 var rootCmd = &cobra.Command{
@@ -30,6 +31,7 @@ func Execute() {
 	if err := rootCmd.Execute(); err != nil {
 		panic(err)
 	} else {
+		config.ReadConfig()
 		filepathList := walker.Walk(InputDir)
 		resolver.FilePathListToTmDbCollectionList(filepathList)
 	}

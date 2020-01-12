@@ -2,6 +2,7 @@ package resolver
 
 import (
 	"fmt"
+	"github.com/ASVBPREAUBV/pohls/internal/config"
 	"github.com/ryanbradynd05/go-tmdb"
 	"path/filepath"
 )
@@ -34,7 +35,7 @@ func FilePathToTmdbCollection(string string) (tmdb.Collection, error) {
 
 func MediaToTmdbCollection(media Media) (tmdb.Collection, error) {
 	config := tmdb.Config{
-		APIKey:   "YOUR_KEY",
+		APIKey:   config.TmdbToken,
 		Proxies:  nil,
 		UseProxy: false,
 	}

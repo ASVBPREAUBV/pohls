@@ -1,6 +1,7 @@
 APP=pohls
 TESTINPUTDIR=.
 TESTOUTPUTDIR=out
+PHL_TMDB_TOKEN="tmdb_token"
 
 go-build:
 	go build -o ${APP}-${TARGET} main.go
