@@ -3,8 +3,8 @@ package cmd
 import (
 	"github.com/ASVBPREAUBV/pohls/internal/resolver"
 	"github.com/ASVBPREAUBV/pohls/internal/walker"
+	"github.com/ASVBPREAUBV/pohls/internal/config"
 	"github.com/spf13/cobra"
-	"gitlab.com/deepc/atlantis/pkg/config"
 )
 
 var rootCmd = &cobra.Command{
