@@ -1,7 +1,6 @@
 package resolver
 
 import (
-	"fmt"
 	"github.com/go-openapi/errors"
 	"strconv"
 )
@@ -22,7 +21,6 @@ func extractSeason(filename string) (int, error) {
 
 func extractEpisode(filename string) (int, error) {
 	episodeStrings := episodePattern.FindStringSubmatch(filename)
-	fmt.Println(episodeStrings)
 	if len(episodeStrings) == 0 {
 		return 99, errors.TooFewItems("episodeStrings", "episodeStrings", 2)
 	} else {

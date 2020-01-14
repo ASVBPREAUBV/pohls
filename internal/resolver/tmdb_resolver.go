@@ -2,7 +2,6 @@ package resolver
 
 import (
 	"errors"
-	"fmt"
 	"github.com/ASVBPREAUBV/pohls/internal/config"
 	"github.com/ryanbradynd05/go-tmdb"
 )
@@ -18,7 +17,6 @@ func ParseMediaThroughTmdb(media Media) (Media, error) {
 }
 
 func MediaToTmdbMovie(media Media) (Media, error) {
-	fmt.Println(media)
 
 	tmdbAPI := tmdb.Init(config.TmdbConfig)
 
@@ -38,8 +36,6 @@ func MediaToTmdbMovie(media Media) (Media, error) {
 }
 
 func MediaToTmdbSeries(media Media) (Media, error) {
-	fmt.Println(media)
-
 	tmdbAPI := tmdb.Init(config.TmdbConfig)
 
 	movieSearchResults, err := tmdbAPI.SearchTv(media.Title, nil)

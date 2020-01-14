@@ -1,13 +1,11 @@
 package resolver_test
 
 import (
-	"github.com/ASVBPREAUBV/pohls/internal/config"
-	"github.com/ryanbradynd05/go-tmdb"
 	"testing"
 )
 
 func TestTmdbSearch(t *testing.T) {
-	config.ReadConfig()
+	/*config.ReadConfig()
 	testNames := []string{
 		"The Artist",
 	}
@@ -19,7 +17,7 @@ func TestTmdbSearch(t *testing.T) {
 		t.Error(err)
 	}
 
-	//fmt.Println(collectionSearchResults.Results[0])
+	fmt.Println(mo.Results[0])*/
 
 	//for _, filename := range collectionSearchResults.Results {
 	// fmt.Println(filename.Title) }

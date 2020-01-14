@@ -2,6 +2,7 @@ package resolver_test
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/ASVBPREAUBV/pohls/internal/resolver"
 	"io/ioutil"
 	"testing"
@@ -19,11 +20,9 @@ func TestNameToTmdb(t *testing.T) {
 		t.Error(err)
 	}
 
-	//fmt.Print(filenames)
+	media := resolver.FilenameCleaner(filenames)
 
-	for _, filename := range filenames {
-		media := resolver.FilePathToMedia(filename)
-
-		fmt.Println(media.Title)
+	for _, m := range media {
+		fmt.Println(m.Title)
 	}
 }

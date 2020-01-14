@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"fmt"
 	"github.com/ASVBPREAUBV/pohls/internal/config"
 	"github.com/ASVBPREAUBV/pohls/internal/resolver"
 	"github.com/ASVBPREAUBV/pohls/internal/walker"
@@ -33,6 +34,11 @@ func Execute() {
 	} else {
 		config.ReadConfig()
 		filepathList := walker.Walk(InputDir)
-		resolver.FilenameCleaner(filepathList)
+		media := resolver.FilenameCleaner(filepathList)
+
+		for _, m := range media {
+			fmt.Println(m.Title)
+		}
+
 	}
 }
