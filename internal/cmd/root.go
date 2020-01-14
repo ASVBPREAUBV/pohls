@@ -36,9 +36,10 @@ func Execute() {
 		filepathList := walker.Walk(InputDir)
 		media := resolver.FilenameCleaner(filepathList)
 
-		for _, m := range media {
-			fmt.Println(m.Title)
+		if DryRun {
+			for _, m := range media {
+				fmt.Println(m.Title)
+			}
 		}
-
 	}
 }
