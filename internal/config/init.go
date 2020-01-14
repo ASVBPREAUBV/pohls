@@ -14,6 +14,7 @@ func ReadConfig() {
 
 	viper.SetConfigName("pohls") // name of config file (without extension)
 	viper.AddConfigPath("./configs")
+	viper.AddConfigPath("$GOPATH/src/github.com/ASVBPREAUBV/pohls/configs")
 
 	viper.AutomaticEnv()
 	viper.SetEnvPrefix("phl")
