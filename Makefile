@@ -13,4 +13,4 @@ dev:
 	make run
 
 go-test:
-	go test  ./internal/resolver/ -v
+	go test  ./... -v

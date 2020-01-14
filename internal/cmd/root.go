@@ -1,9 +1,9 @@
 package cmd
 
 import (
+	"github.com/ASVBPREAUBV/pohls/internal/config"
 	"github.com/ASVBPREAUBV/pohls/internal/resolver"
 	"github.com/ASVBPREAUBV/pohls/internal/walker"
-	"github.com/ASVBPREAUBV/pohls/internal/config"
 	"github.com/spf13/cobra"
 )
 
@@ -33,6 +33,6 @@ func Execute() {
 	} else {
 		config.ReadConfig()
 		filepathList := walker.Walk(InputDir)
-		resolver.FilePathListToTmDbCollectionList(filepathList)
+		resolver.FilenameCleaner(filepathList)
 	}
 }

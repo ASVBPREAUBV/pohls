@@ -1,50 +1,58 @@
 package resolver
 
 import (
+	"errors"
 	"fmt"
 	"github.com/ASVBPREAUBV/pohls/internal/config"
 	"github.com/ryanbradynd05/go-tmdb"
-	"path/filepath"
 )
 
-func FilePathToTmdbCollection(string string) (tmdb.Collection, error) {
-	file := filepath.Base(string)
-	media := FilePathToMedia(file)
-	//TODO media health check
-
-	collection, err := MediaToTmdbCollection(media)
-	if err != nil {
-		return collection, err
+func ParseMediaThroughTmdb(media Media) (Media, error) {
+	if media.MediaType == MediaTypeMovie {
+		return MediaToTmdbMovie(media)
 	}
-	return collection, nil
+	if media.MediaType == MediaTypeSeries {
+		return MediaToTmdbSeries(media)
+	}
+	return Media{}, errors.New("no media found")
 }
 
-func MediaToTmdbCollection(media Media) (tmdb.Collection, error) {
+func MediaToTmdbMovie(media Media) (Media, error) {
 	fmt.Println(media)
 
-	config := tmdb.Config{
-		APIKey:   config.TmdbToken,
-		Proxies:  nil,
-		UseProxy: false,
-	}
+	tmdbAPI := tmdb.Init(config.TmdbConfig)
 
-	tmdbAPI := tmdb.Init(config)
-	collectionSearchResults, err := tmdbAPI.SearchCollection(media.Name, nil)
+	movieSearchResults, err := tmdbAPI.SearchMovie(media.Title, nil)
 
 	if err != nil {
-		return tmdb.Collection{}, err
+		return media, err
 	}
 
-	fmt.Println(collectionSearchResults.Results[0])
+	if len(movieSearchResults.Results) > 0 {
+		firstResultTitle := movieSearchResults.Results[0].Title
+		media.Title = firstResultTitle
+		return media, err
+	} else {
+		return media, errors.New("no movie found")
+	}
+}
 
+func MediaToTmdbSeries(media Media) (Media, error) {
+	fmt.Println(media)
 
-	firstResult := collectionSearchResults.Results[0]
+	tmdbAPI := tmdb.Init(config.TmdbConfig)
 
-	collection, err := tmdbAPI.GetCollectionInfo(firstResult.ID, nil)
+	movieSearchResults, err := tmdbAPI.SearchTv(media.Title, nil)
 
 	if err != nil {
-		return *collection, err
+		return media, err
 	}
 
-	return *collection, nil
+	if len(movieSearchResults.Results) > 0 {
+		firstResultTitle := movieSearchResults.Results[0].Name
+		media.Title = firstResultTitle
+		return media, err
+	} else {
+		return media, errors.New("no series found")
+	}
 }

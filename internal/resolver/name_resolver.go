@@ -1,22 +1,18 @@
 package resolver
 
-import (
-	"fmt"
-	"github.com/ryanbradynd05/go-tmdb"
-)
-
-func FilePathListToTmDbCollectionList(filenames []string) (collections []tmdb.Collection) {
+func FilenameCleaner(filenames []string) (media []Media) {
 
 	for _, filename := range filenames {
-		collection, err := FilePathToTmdbCollection(filename)
-		if err != nil {
-			fmt.Print(err)
+		rawMedia := FilePathToMedia(filename)
+		parsedMedia, err := ParseMediaThroughTmdb(rawMedia)
+		if err == nil {
+			media = append(media, rawMedia)
 		} else {
-			collections = append(collections, collection)
+			media = append(media, parsedMedia)
 		}
 	}
 
-	return collections
+	return media
 }
 
 func FilePathToMedia(fileName string) Media {
@@ -45,9 +41,7 @@ func FilePathToMedia(fileName string) Media {
 
 	//fmt.Println(fileName)
 
-	mediaName := NameDetox(fileName)
-
-	media.Name = mediaName
+	media.Title = NameDetox(fileName)
 
 	//fmt.Println(media)
 

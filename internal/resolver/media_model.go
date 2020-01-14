@@ -1,7 +1,7 @@
 package resolver
 
 type Media struct {
-	Name      string
+	Title     string
 	MediaType MediaType
 	Season    int
 	Episode   int

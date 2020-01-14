@@ -2,11 +2,12 @@ package config
 
 import (
 	"fmt"
+	"github.com/ryanbradynd05/go-tmdb"
 	"github.com/spf13/viper"
 	"strings"
 )
 
-var TmdbToken string
+var TmdbConfig tmdb.Config
 
 func ReadConfig() {
 	replacer := strings.NewReplacer(".", "_")
@@ -24,6 +25,10 @@ func ReadConfig() {
 		panic(fmt.Errorf("Fatal error config file: %s \n", err))
 	}
 
-	TmdbToken = viper.GetString("tmdbtoken")
+	TmdbConfig = tmdb.Config{
+		APIKey:   viper.GetString("tmdbtoken"),
+		Proxies:  nil,
+		UseProxy: false,
+	}
 
 }

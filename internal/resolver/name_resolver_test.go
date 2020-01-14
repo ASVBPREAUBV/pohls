@@ -1,11 +1,14 @@
 package resolver_test
 
 import (
+	"encoding/json"
+	"github.com/ASVBPREAUBV/pohls/internal/resolver"
+	"io/ioutil"
 	"testing"
 )
 
 func TestNameToTmdb(t *testing.T) {
-	/**dat, err := ioutil.ReadFile("../../tests/filenames.json")
+	dat, err := ioutil.ReadFile("../../tests/filenames.json")
 	if err != nil {
 		t.Error(err)
 	}
@@ -19,10 +22,8 @@ func TestNameToTmdb(t *testing.T) {
 	//fmt.Print(filenames)
 
 	for _, filename := range filenames {
-		cols, err := resolver.FilePathToTmdbCollection(filename)
-		if err != nil {
-			t.Error(err)
-		}
-		fmt.Println(cols)
-	}*/
+		media := resolver.FilePathToMedia(filename)
+
+		fmt.Println(media.Title)
+	}
 }
