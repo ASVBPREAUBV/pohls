@@ -6,6 +6,8 @@ import (
 	"path/filepath"
 )
 
+var allowedFileExtentions = []string{"avi", "mp4", "mkv", "mpg"}
+
 func Walk(inputDir string) (filepathList []string) {
 
 	err := filepath.Walk(inputDir, func(path string, info os.FileInfo, err error) error {
@@ -15,10 +17,12 @@ func Walk(inputDir string) (filepathList []string) {
 			return err
 		}
 
-		//fmt.Printf("%q\n", path)
+		//fmt.Println(path, filepath.Ext(path))
 
-		if filepath.Ext(path) == "avi" {
-			filepathList = append(filepathList, path)
+		for _, ex := range allowedFileExtentions {
+			if filepath.Ext(path) == "."+ex {
+				filepathList = append(filepathList, filepath.Base(path))
+			}
 		}
 
 		return nil

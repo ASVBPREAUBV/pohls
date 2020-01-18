@@ -1,11 +1,12 @@
 package resolver
 
 type Media struct {
-	Title     string
-	MediaType MediaType
-	Season    int
-	Episode   int
-	Year      int
+	OriginalFilePath string
+	Title            string
+	MediaType        MediaType
+	Season           int
+	Episode          int
+	Year             int
 	//	Extended   bool
 	//	Hardcoded  bool
 	//	Proper     bool

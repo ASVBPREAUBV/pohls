@@ -34,18 +34,11 @@ func Execute() {
 	} else {
 		config.ReadConfig()
 		filepathList := walker.Walk(InputDir)
-
-		if DryRun {
-			for _, m := range filepathList {
-				fmt.Println(m)
-			}
-		}
-
 		media := resolver.FilenameCleaner(filepathList)
 
 		if DryRun {
 			for _, m := range media {
-				fmt.Println(m.Title)
+				fmt.Println(m)
 			}
 		}
 	}
