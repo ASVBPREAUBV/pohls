@@ -17,7 +17,7 @@ func writer(targetDir string, mediaList []resolver.Media) {
 		} else {
 			sourceDir = path.Join(sourceDir, fmt.Sprintf("%s %d", strings.Replace(media.Title, " ", "_", -1), media.Year))
 		}
-		writeFile(media.OriginalFilePath, sourceDir)
+		writeFile(media.SourceFilePath, sourceDir)
 	}
 
 }
@@ -32,7 +32,6 @@ func writeFile(source, target string) {
 	err = ioutil.WriteFile(target, input, 0644)
 	if err != nil {
 		fmt.Println("Error creating", target)
-		fmt.Println(err)
 		return
 	}
 }
