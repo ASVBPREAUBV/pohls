@@ -1,4 +1,4 @@
-package resolver_test
+package filePathToMedia_test
 
 import (
 	"encoding/json"
@@ -20,7 +20,7 @@ func TestNameToTmdb(t *testing.T) {
 		t.Error(err)
 	}
 
-	media := resolver.FilenameCleaner(filenames)
+	media := filePathToMedia.FilenameCleaner(filenames)
 
 	for _, m := range media {
 		fmt.Println(m.Title)

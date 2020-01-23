@@ -1,4 +1,4 @@
-package resolver
+package filePathToMedia
 
 import (
 	"github.com/go-openapi/errors"

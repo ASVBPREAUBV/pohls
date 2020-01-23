@@ -1,4 +1,4 @@
-package resolver
+package filePathToMedia
 
 func FilenameCleaner(filenames []string) (media []Media) {
 

@@ -34,7 +34,7 @@ func Execute() {
 	} else {
 		config.ReadConfig()
 		filepathList := walker.Walk(InputDir)
-		media := resolver.FilenameCleaner(filepathList)
+		media := filePathToMedia.FilenameCleaner(filepathList)
 
 		if DryRun {
 			for _, m := range media {

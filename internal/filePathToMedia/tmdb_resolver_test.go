@@ -1,4 +1,4 @@
-package resolver_test
+package filePathToMedia_test
 
 import (
 	"testing"

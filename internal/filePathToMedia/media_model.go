@@ -1,4 +1,4 @@
-package resolver
+package filePathToMedia
 
 type Media struct {
 	SourceFilePath      string
