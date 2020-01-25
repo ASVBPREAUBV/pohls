@@ -33,13 +33,13 @@ func Execute() {
 		panic(err)
 	} else {
 		config.ReadConfig()
-		filepathList := walker.Walk(InputDir)
-		media := filePathToMedia.FilenameCleaner(filepathList)
+		//filepathList := walker.Walk(InputDir)
+		//media := filePathToMedia.FilenameCleaner(filepathList)
 
-		if DryRun {
+		/*if DryRun {
 			for _, m := range media {
 				fmt.Println(m)
 			}
-		}
+		}*/
 	}
 }
