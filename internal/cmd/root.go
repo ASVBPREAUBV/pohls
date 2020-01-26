@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 	"github.com/ASVBPREAUBV/pohls/internal/config"
+	"github.com/ASVBPREAUBV/pohls/internal/filePathToMedia"
 	"github.com/ASVBPREAUBV/pohls/internal/resolver"
 	"github.com/ASVBPREAUBV/pohls/internal/walker"
 	"github.com/spf13/cobra"
@@ -33,13 +34,12 @@ func Execute() {
 		panic(err)
 	} else {
 		config.ReadConfig()
-		//filepathList := walker.Walk(InputDir)
-		//media := filePathToMedia.FilenameCleaner(filepathList)
-
-		/*if DryRun {
+		filepathList := walker.Walk(InputDir)
+		media := filePathToMedia.FilenameCleaner(filepathList)
+		if DryRun {
 			for _, m := range media {
 				fmt.Println(m)
 			}
-		}*/
+		}
 	}
 }
