@@ -7,6 +7,7 @@ import (
 	"github.com/ASVBPREAUBV/pohls/internal/resolver"
 	"github.com/ASVBPREAUBV/pohls/internal/walker"
 	"github.com/spf13/cobra"
+	"path"
 )
 
 var rootCmd = &cobra.Command{
@@ -38,6 +39,7 @@ func Execute() {
 		media := filePathToMedia.FilenameCleaner(filepathList)
 		if DryRun {
 			for _, m := range media {
+				m.DestinationFilePath = path.Join(OutputDir,string(m.MediaType),m.Title)
 				fmt.Println(m)
 			}
 		}
