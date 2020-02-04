@@ -43,5 +43,6 @@ func Execute() {
 				fmt.Println(m)
 			}
 		}
+		fmt.Println(filepathList)
 	}
 }
