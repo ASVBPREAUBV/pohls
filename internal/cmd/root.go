@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"github.com/ASVBPREAUBV/pohls/internal/config"
 	"github.com/ASVBPREAUBV/pohls/internal/filePathToMedia"
-	"github.com/ASVBPREAUBV/pohls/internal/resolver"
 	"github.com/ASVBPREAUBV/pohls/internal/walker"
+	"github.com/ASVBPREAUBV/pohls/internal/writer"
 	"github.com/spf13/cobra"
 	"path"
 )
@@ -37,12 +37,13 @@ func Execute() {
 		config.ReadConfig()
 		filepathList := walker.Walk(InputDir)
 		media := filePathToMedia.FilenameCleaner(filepathList)
-		if DryRun {
-			for _, m := range media {
-				m.DestinationFilePath = path.Join(OutputDir,string(m.MediaType),m.Title)
+		for _, m := range media {
+			m.DestinationFilePath = path.Join(OutputDir, string(m.MediaType), m.Title)
+			if DryRun {
 				fmt.Println(m)
+			} else {
+				writer.WriteFile(m.SourceFilePath,m.DestinationFilePath)
 			}
 		}
-		fmt.Println(filepathList)
 	}
 }
