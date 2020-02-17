@@ -31,6 +31,7 @@ func Execute() {
 
 	rootCmd.MarkFlagRequired("input")
 	rootCmd.MarkFlagRequired("output")
+
 	if err := rootCmd.Execute(); err != nil {
 		panic(err)
 	} else {
