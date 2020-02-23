@@ -6,6 +6,7 @@ import (
 	"github.com/ASVBPREAUBV/pohls/internal/detox"
 	"github.com/ASVBPREAUBV/pohls/internal/filePathToMedia"
 	"github.com/ASVBPREAUBV/pohls/internal/files"
+	"github.com/ASVBPREAUBV/pohls/internal/mediawriter"
 	"github.com/spf13/cobra"
 	"path"
 )

@@ -25,6 +25,7 @@ A *file* is a single file on your computer with its content.
 All the information about a content of a *file* should be in the *filename*.
 
 From the *filename* pohls extracts all the media-contents information. (e.g. name, year...).
+Additional info gets loaded through external apis. (e.g. [tmdb](https://www.themoviedb.org/))
 
 The media information is saved in the *media* model.
 
