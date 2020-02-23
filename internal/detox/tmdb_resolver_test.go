@@ -1,4 +1,4 @@
-package filePathToMedia_test
+package detox_test
 
 import (
 	"testing"

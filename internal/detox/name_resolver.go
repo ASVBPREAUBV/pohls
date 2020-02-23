@@ -1,4 +1,4 @@
-package filePathToMedia
+package detox
 
 func FilenameCleaner(filenames []string) (media []Media) {
 

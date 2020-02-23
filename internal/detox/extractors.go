@@ -1,4 +1,4 @@
-package filePathToMedia
+package detox
 
 import (
 	"github.com/go-openapi/errors"

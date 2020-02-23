@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 	"github.com/ASVBPREAUBV/pohls/internal/config"
+	"github.com/ASVBPREAUBV/pohls/internal/detox"
 	"github.com/ASVBPREAUBV/pohls/internal/filePathToMedia"
 	"github.com/ASVBPREAUBV/pohls/internal/files"
 	"github.com/spf13/cobra"
@@ -35,14 +36,14 @@ func Execute() {
 		panic(err)
 	} else {
 		config.ReadConfig()
-		filepathList := files.Walk(InputDir)
-		media := filePathToMedia.FilenameCleaner(filepathList)
+		filepathList := mediawriter.Walk(InputDir)
+		media := detox.FilenameCleaner(filepathList)
 		for _, m := range media {
 			m.DestinationFilePath = path.Join(OutputDir, string(m.MediaType), m.Title)
 			if DryRun {
 				fmt.Println(m)
 			} else {
-				files.WriteFile(m.SourceFilePath,m.DestinationFilePath)
+				mediawriter.WriteFile(m.SourceFilePath,m.DestinationFilePath)
 			}
 		}
 	}

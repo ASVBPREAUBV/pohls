@@ -1,4 +1,4 @@
-package filePathToMedia
+package detox
 
 type Media struct {
 	SourceFilePath      string
