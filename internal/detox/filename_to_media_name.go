@@ -7,8 +7,8 @@ import (
 
 func NameDetox(fileName string) string {
 
-	fileName = seasonEpisodePattern.ReplaceAllString(fileName, "")
-	fileName = yearPattern.ReplaceAllString(fileName, "")
+	fileName = SeasonEpisodePattern.ReplaceAllString(fileName, "")
+	fileName = YearPattern.ReplaceAllString(fileName, "")
 
 	fileName = resolutionPattern.ReplaceAllString(fileName, "")
 	fileName = qualityPattern.ReplaceAllString(fileName, "")

@@ -3,10 +3,10 @@ package detox
 import "regexp"
 
 var (
-	seasonPattern        = regexp.MustCompile(`(?i)s?([0-9]{1,2})[ex]`)
-	episodePattern       = regexp.MustCompile(`(?i)[ex]([0-9]{1,2})`)
-	seasonEpisodePattern = regexp.MustCompile(`(?i)s?([0-9]{1,2})[ex]([0-9]{2})(?:[^0-9])`)
-	yearPattern          = regexp.MustCompile(`([\[\(]?((?:19[0-9]|20[01])[0-9])[\]\)]?)`)
+	SeasonPattern        = regexp.MustCompile(`(?i)s?([0-9]{1,2})[ex]`)
+	EpisodePattern       = regexp.MustCompile(`(?i)[ex]([0-9]{1,2})`)
+	SeasonEpisodePattern = regexp.MustCompile(`(?i)s?([0-9]{1,2})[ex]([0-9]{2})(?:[^0-9])`)
+	YearPattern          = regexp.MustCompile(`([\[\(]?((?:19[0-9]|20[01])[0-9])[\]\)]?)`)
 	resolutionPattern    = regexp.MustCompile(`([0-9]{3,4}p)`)
 	qualityPattern       = regexp.MustCompile(`(?i)((?:PPV\.)?[HP]DTV|(?:HD)?CAM|B[DR]Rip|(?:HD-?)?TS|(?:PPV )?WEB-?DL(?: DVDRip)?|HDRip|DVDRip|DVDRIP|CamRip|W[EB]B[Rr]ip|BluRay|DvDScr|hdtv|telesync|HEVC|SNHD)`)
 	codecPattern         = regexp.MustCompile(`(?i)(xvid|[hx]\.?26[45])`)

@@ -38,6 +38,8 @@ func Execute() {
 	} else {
 		config.ReadConfig()
 		filepathList := mediawriter.Walk(InputDir)
+		fmt.Println(filepathList)
+		/*cleanFileNameList :=
 		media := detox.FilenameCleaner(filepathList)
 		for _, m := range media {
 			m.DestinationFilePath = path.Join(OutputDir, string(m.MediaType), m.Title)
@@ -46,6 +48,6 @@ func Execute() {
 			} else {
 				mediawriter.WriteFile(m.SourceFilePath,m.DestinationFilePath)
 			}
-		}
+		}*/
 	}
 }

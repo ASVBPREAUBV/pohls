@@ -2,8 +2,6 @@ package detox_test
 
 import (
 	"encoding/json"
-	"fmt"
-	"github.com/ASVBPREAUBV/pohls/internal/resolver"
 	"io/ioutil"
 	"testing"
 )
@@ -20,9 +18,9 @@ func TestNameToTmdb(t *testing.T) {
 		t.Error(err)
 	}
 
-	media := filePathToMedia.FilenameCleaner(filenames)
+	/*media := filePathToMedia.FilenameCleaner(filenames)
 
 	for _, m := range media {
 		fmt.Println(m.Title)
-	}
+	}*/
 }

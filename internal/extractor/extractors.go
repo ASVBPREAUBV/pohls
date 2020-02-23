@@ -1,12 +1,13 @@
-package detox
+package extractor
 
 import (
+	"github.com/ASVBPREAUBV/pohls/internal/detox"
 	"github.com/go-openapi/errors"
 	"strconv"
 )
 
 func extractSeason(filename string) (int, error) {
-	seasonStrings := seasonPattern.FindStringSubmatch(filename)
+	seasonStrings := detox.SeasonPattern.FindStringSubmatch(filename)
 	if len(seasonStrings) == 0 {
 		return 99, errors.TooFewItems("seasonStrings", "seasonStrings", 2)
 	} else {
@@ -20,7 +21,7 @@ func extractSeason(filename string) (int, error) {
 }
 
 func extractEpisode(filename string) (int, error) {
-	episodeStrings := episodePattern.FindStringSubmatch(filename)
+	episodeStrings := detox.EpisodePattern.FindStringSubmatch(filename)
 	if len(episodeStrings) == 0 {
 		return 99, errors.TooFewItems("episodeStrings", "episodeStrings", 2)
 	} else {
@@ -34,7 +35,7 @@ func extractEpisode(filename string) (int, error) {
 }
 
 func extractYear(filename string) (int, error) {
-	yearStrings := yearPattern.FindStringSubmatch(filename)
+	yearStrings := detox.YearPattern.FindStringSubmatch(filename)
 	if len(yearStrings) == 0 {
 		return 99, errors.TooFewItems("yearStrings", "yearStrings", 2)
 	} else {
@@ -46,4 +47,3 @@ func extractYear(filename string) (int, error) {
 		return yearNo, nil
 	}
 }
-

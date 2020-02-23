@@ -1,4 +1,4 @@
-package detox
+package extractor
 
 func FilenameCleaner(filenames []string) (media []Media) {
 

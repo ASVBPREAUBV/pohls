@@ -1,4 +1,4 @@
-package detox_test
+package extractor
 
 import (
 	"testing"

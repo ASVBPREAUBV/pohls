@@ -1,4 +1,4 @@
-package detox
+package extractor
 
 import (
 	"errors"
