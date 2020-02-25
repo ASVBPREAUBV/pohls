@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/ASVBPREAUBV/pohls/internal/config"
 	"github.com/ASVBPREAUBV/pohls/internal/detox"
+	"github.com/ASVBPREAUBV/pohls/internal/extractor"
 	"github.com/ASVBPREAUBV/pohls/internal/filePathToMedia"
 	"github.com/ASVBPREAUBV/pohls/internal/files"
 	"github.com/ASVBPREAUBV/pohls/internal/mediawriter"
@@ -39,8 +40,10 @@ func Execute() {
 		config.ReadConfig()
 		filepathList := mediawriter.Walk(InputDir)
 		fmt.Println(filepathList)
+		mediaList := extractor.FilenameCleaner(filepathList)
+		fmt.Println(mediaList)
+
 		/*cleanFileNameList :=
-		media := detox.FilenameCleaner(filepathList)
 		for _, m := range media {
 			m.DestinationFilePath = path.Join(OutputDir, string(m.MediaType), m.Title)
 			if DryRun {

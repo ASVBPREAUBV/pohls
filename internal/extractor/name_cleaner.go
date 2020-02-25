@@ -27,7 +27,7 @@ func FilePathToMedia(fileName string) Media {
 
 	//fmt.Println(fileName)
 
-	media.Title = NameDetox(fileName)
+	//media.Title = NameDetox(fileName)
 
 
 	//fmt.Println(media)
