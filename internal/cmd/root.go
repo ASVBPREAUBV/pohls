@@ -2,14 +2,14 @@ package cmd
 
 import (
 	"fmt"
+
 	"github.com/ASVBPREAUBV/pohls/internal/config"
-	"github.com/ASVBPREAUBV/pohls/internal/detox"
 	"github.com/ASVBPREAUBV/pohls/internal/extractor"
-	"github.com/ASVBPREAUBV/pohls/internal/filePathToMedia"
-	"github.com/ASVBPREAUBV/pohls/internal/files"
+
+	//"github.com/ASVBPREAUBV/pohls/internal/filePathToMedia"
+	//"github.com/ASVBPREAUBV/pohls/internal/files"
 	"github.com/ASVBPREAUBV/pohls/internal/mediawriter"
 	"github.com/spf13/cobra"
-	"path"
 )
 
 var rootCmd = &cobra.Command{
